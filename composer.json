@@ -1,0 +1,29 @@
+{
+	"name": "oefenweb/php-statistics",
+	"description": "Statistics library for PHP",
+	"type": "library",
+	"keywords": [
+		"statistics"
+	],
+	"homepage": "http://github.com/Oefenweb/php-statistics",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Oefenweb.nl BV team",
+			"homepage": "https://github.com/Oefenweb/php-statistics/contributors"
+		}
+	],
+	"require": {
+		"php": ">=5.3.10",
+		"composer/installers": "~1.0"
+	},
+	"support": {
+		"issues": "https://github.com/Oefenweb/php-statistics/issues",
+		"source": "https://github.com/Oefenweb/php-statistics"
+	},
+	"autoload": {
+		"classmap": [
+			"src"
+		]
+	}
+}
