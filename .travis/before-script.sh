@@ -26,7 +26,7 @@ cat << EOF > phpunit.xml;
 <phpunit>
   <testsuites>
     <testsuite name="php-statistics">
-      <directory>test</directory>
+      <directory>tests</directory>
     </testsuite>
   </testsuites>
 </phpunit>
