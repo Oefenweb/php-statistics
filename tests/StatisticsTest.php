@@ -2,6 +2,11 @@
 
 class StatisticsTest extends PHPUnit_Framework_TestCase {
 
+/**
+ * Test for `sum`.
+ *
+ * @return void
+ */
 	public function testSum() {
 		//
 		// Integers
@@ -37,6 +42,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame($expected, $result);
 	}
 
+/**
+ * Test for `min`.
+ *
+ * @return void
+ */
 	public function testMin() {
 		//
 		// Integers
@@ -61,6 +71,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame($expected, $result);
 	}
 
+/**
+ * Test for `max`.
+ *
+ * @return void
+ */
 	public function testMax() {
 		//
 		// Integers
@@ -85,6 +100,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame($expected, $result);
 	}
 
+/**
+ * Test for `mean`.
+ *
+ * @return void
+ */
 	public function testMean() {
 		//
 		// Integers
@@ -120,6 +140,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame($expected, $result);
 	}
 
+/**
+ * Test for `frequency`.
+ *
+ * @return void
+ */
 	public function testFrequency() {
 		//
 		// Integers
@@ -171,6 +196,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame($expected, $result);
 	}
 
+/**
+ * Test for `mode`.
+ *
+ * @return void
+ */
 	public function testMode() {
 		//
 		// Integers
@@ -210,14 +240,22 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 	}
 
 /**
+ * Test for `mode`.
+ *
+ * @return void
  * @expectedException StatisticsError
  */
 	public function testModeNotExactlyOne() {
 		$values = array(1, 1, 2, 4, 4);
 
-		$result = Statistics::mode($values);
+		Statistics::mode($values);
 	}
 
+/**
+ * Test for `variance`.
+ *
+ * @return void
+ */
 	public function testVariance() {
 		//
 		// Sample (default)
@@ -274,6 +312,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame($expected, $result, '', pow(10, -4));
 	}
 
+/**
+ * Test for `standardDeviation`.
+ *
+ * @return void
+ */
 	public function testStandardDeviation() {
 		//
 		// Sample (default)
@@ -330,6 +373,11 @@ class StatisticsTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($expected, $result, '', pow(10, -4));
 	}
 
+/**
+ * Test for `range`.
+ *
+ * @return void
+ */
 	public function testRange() {
 		//
 		// Integers (> 0)
