@@ -1,5 +1,4 @@
 <?php
-require sprintf('%s/../src/Statistics.php', dirname(__FILE__));
 
 class StatisticsTest extends PHPUnit_Framework_TestCase {
 
