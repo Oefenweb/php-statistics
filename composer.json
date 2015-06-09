@@ -22,8 +22,13 @@
 		"source": "https://github.com/Oefenweb/php-statistics"
 	},
 	"autoload": {
-		"classmap": [
-			"src"
-		]
+		"psr-4": {
+			"Oefenweb\\Statistics\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Oefenweb\\Statistics\\Test\\": "tests"
+		}
 	}
 }

@@ -1,411 +1,426 @@
 <?php
+namespace Oefenweb\Statistics\Test;
 
-class StatisticsTest extends PHPUnit_Framework_TestCase {
+use Oefenweb\Statistics\Statistics;
+use Oefenweb\Statistics\StatisticsError;
+use PHPUnit_Framework_TestCase;
 
-/**
- * Test for `sum`.
- *
- * @return void
- */
-	public function testSum() {
-		//
-		// Integers
-		//
+class StatisticsTest extends PHPUnit_Framework_TestCase
+{
 
-		$values = array(1, 2, 3, 4, 4);
+    /**
+     * Test for `sum`.
+     *
+     * @return void
+     */
+    public function testSum()
+    {
+        //
+        // Integers
+        //
 
-		$result = Statistics::sum($values);
-		$expected = 14;
+        $values = array(1, 2, 3, 4, 4);
 
-		$this->assertSame($expected, $result);
+        $result = Statistics::sum($values);
+        $expected = 14;
 
-		//
-		// Floats
-		//
+        $this->assertSame($expected, $result);
 
-		$values = array(-1.0, 2.5, 3.25, 5.75);
+        //
+        // Floats
+        //
 
-		$result = Statistics::sum($values);
-		$expected = 10.5;
+        $values = array(-1.0, 2.5, 3.25, 5.75);
 
-		$this->assertSame($expected, $result);
+        $result = Statistics::sum($values);
+        $expected = 10.5;
 
-		//
-		// Mixed
-		//
+        $this->assertSame($expected, $result);
 
-		$values = array(-2, 2.5, 3.25, 5.75, 0);
+        //
+        // Mixed
+        //
 
-		$result = Statistics::sum($values);
-		$expected = 9.5;
+        $values = array(-2, 2.5, 3.25, 5.75, 0);
 
-		$this->assertSame($expected, $result);
-	}
+        $result = Statistics::sum($values);
+        $expected = 9.5;
 
-/**
- * Test for `min`.
- *
- * @return void
- */
-	public function testMin() {
-		//
-		// Integers
-		//
+        $this->assertSame($expected, $result);
+    }
 
-		$values = array(1, 2, 3, 4, 4);
+    /**
+     * Test for `min`.
+     *
+     * @return void
+     */
+    public function testMin()
+    {
+        //
+        // Integers
+        //
 
-		$result = Statistics::min($values);
-		$expected = 1;
+        $values = array(1, 2, 3, 4, 4);
 
-		$this->assertSame($expected, $result);
+        $result = Statistics::min($values);
+        $expected = 1;
 
-		//
-		// Floats
-		//
+        $this->assertSame($expected, $result);
 
-		$values = array(-1.0, 2.5, 3.25, 5.75);
+        //
+        // Floats
+        //
 
-		$result = Statistics::min($values);
-		$expected = -1.0;
+        $values = array(-1.0, 2.5, 3.25, 5.75);
 
-		$this->assertSame($expected, $result);
-	}
+        $result = Statistics::min($values);
+        $expected = -1.0;
 
-/**
- * Test for `max`.
- *
- * @return void
- */
-	public function testMax() {
-		//
-		// Integers
-		//
+        $this->assertSame($expected, $result);
+    }
 
-		$values = array(1, 2, 3, 4, 4);
+    /**
+     * Test for `max`.
+     *
+     * @return void
+     */
+    public function testMax()
+    {
+        //
+        // Integers
+        //
 
-		$result = Statistics::max($values);
-		$expected = 4;
+        $values = array(1, 2, 3, 4, 4);
 
-		$this->assertSame($expected, $result);
+        $result = Statistics::max($values);
+        $expected = 4;
 
-		//
-		// Floats
-		//
+        $this->assertSame($expected, $result);
 
-		$values = array(-1.0, 2.5, 3.25, 5.75);
+        //
+        // Floats
+        //
 
-		$result = Statistics::max($values);
-		$expected = 5.75;
+        $values = array(-1.0, 2.5, 3.25, 5.75);
 
-		$this->assertSame($expected, $result);
-	}
+        $result = Statistics::max($values);
+        $expected = 5.75;
 
-/**
- * Test for `mean`.
- *
- * @return void
- */
-	public function testMean() {
-		//
-		// Integers
-		//
-
-		$values = array(1, 2, 3, 4, 4);
+        $this->assertSame($expected, $result);
+    }
 
-		$result = Statistics::mean($values);
-		$expected = 2.8;
+    /**
+     * Test for `mean`.
+     *
+     * @return void
+     */
+    public function testMean()
+    {
+        //
+        // Integers
+        //
+
+        $values = array(1, 2, 3, 4, 4);
+
+        $result = Statistics::mean($values);
+        $expected = 2.8;
+
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Floats
+        //
 
-		//
-		// Floats
-		//
+        $values = array(-1.0, 2.5, 3.25, 5.75);
 
-		$values = array(-1.0, 2.5, 3.25, 5.75);
+        $result = Statistics::mean($values);
+        $expected = 2.625;
 
-		$result = Statistics::mean($values);
-		$expected = 2.625;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Mixed
+        //
 
-		//
-		// Mixed
-		//
+        $values = array(-2, 2.5, 3.25, 5.75, 0);
 
-		$values = array(-2, 2.5, 3.25, 5.75, 0);
+        $result = Statistics::mean($values);
+        $expected = 1.9;
 
-		$result = Statistics::mean($values);
-		$expected = 1.9;
+        $this->assertSame($expected, $result);
+    }
 
-		$this->assertSame($expected, $result);
-	}
+    /**
+     * Test for `frequency`.
+     *
+     * @return void
+     */
+    public function testFrequency()
+    {
+        //
+        // Integers
+        //
 
-/**
- * Test for `frequency`.
- *
- * @return void
- */
-	public function testFrequency() {
-		//
-		// Integers
-		//
+        $values = array(1, 1, 2, 3, 3, 3, 3, 4);
 
-		$values = array(1, 1, 2, 3, 3, 3, 3, 4);
+        $result = Statistics::frequency($values);
+        $expected = array(
+            4 => 1,
+            2 => 1,
+            1 => 2,
+            3 => 4,
+        );
 
-		$result = Statistics::frequency($values);
-		$expected = array(
-			4 => 1,
-			2 => 1,
-			1 => 2,
-			3 => 4,
-		);
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Floats
+        //
 
-		//
-		// Floats
-		//
+        $values = array(1, 3, 6, 6, 6, 6, 7.12, 7.12, 12, 12, 17);
 
-		$values = array(1, 3, 6, 6, 6, 6, 7.12, 7.12, 12, 12, 17);
+        $result = Statistics::frequency($values);
+        $expected = array(
+            17 => 1,
+            1 => 1,
+            3 => 1,
+            12 => 2,
+            '7.12' => 2,
+            6 => 4,
+        );
 
-		$result = Statistics::frequency($values);
-		$expected = array(
-			17 => 1,
-			1 => 1,
-			3 => 1,
-			12 => 2,
-			'7.12' => 2,
-			6 => 4,
-		);
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Strings
+        //
 
-		//
-		// Strings
-		//
+        $values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
 
-		$values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
+        $result = Statistics::frequency($values);
+        $expected = array(
+            'green' => 1,
+            'blue' => 2,
+            'red' => 4,
+        );
 
-		$result = Statistics::frequency($values);
-		$expected = array(
-			'green' => 1,
-			'blue' => 2,
-			'red' => 4,
-		);
+        $this->assertSame($expected, $result);
+    }
 
-		$this->assertSame($expected, $result);
-	}
+    /**
+     * Test for `mode`.
+     *
+     * @return void
+     */
+    public function testMode()
+    {
+        //
+        // Integers
+        //
 
-/**
- * Test for `mode`.
- *
- * @return void
- */
-	public function testMode() {
-		//
-		// Integers
-		//
+        $values = array(3);
 
-		$values = array(3);
+        $result = Statistics::mode($values);
+        $expected = 3;
 
-		$result = Statistics::mode($values);
-		$expected = 3;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        $values = array(1, 1, 2, 3, 3, 3, 3, 4);
 
-		$values = array(1, 1, 2, 3, 3, 3, 3, 4);
+        $result = Statistics::mode($values);
+        $expected = 3;
 
-		$result = Statistics::mode($values);
-		$expected = 3;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        $values = array(1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17);
 
-		$values = array(1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17);
+        $result = Statistics::mode($values);
+        $expected = 6;
 
-		$result = Statistics::mode($values);
-		$expected = 6;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Strings
+        //
 
-		//
-		// Strings
-		//
+        $values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
 
-		$values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
+        $result = Statistics::mode($values);
+        $expected = 'red';
 
-		$result = Statistics::mode($values);
-		$expected = 'red';
+        $this->assertSame($expected, $result);
+    }
 
-		$this->assertSame($expected, $result);
-	}
+    /**
+     * Test for `mode`.
+     *
+     * @return void
+     * @expectedException \Oefenweb\Statistics\StatisticsError
+     */
+    public function testModeNotExactlyOne()
+    {
+        $values = array(1, 1, 2, 4, 4);
 
-/**
- * Test for `mode`.
- *
- * @return void
- * @expectedException StatisticsError
- */
-	public function testModeNotExactlyOne() {
-		$values = array(1, 1, 2, 4, 4);
+        Statistics::mode($values);
+    }
 
-		Statistics::mode($values);
-	}
+    /**
+     * Test for `variance`.
+     *
+     * @return void
+     */
+    public function testVariance()
+    {
+        //
+        // Sample (default)
+        //
 
-/**
- * Test for `variance`.
- *
- * @return void
- */
-	public function testVariance() {
-		//
-		// Sample (default)
-		//
+        //
+        // Integers
+        //
+        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $sample = true;
 
-		//
-		// Integers
-		//
-		$values = array(2, 4, 4, 4, 5, 5, 7, 9);
-		$sample = true;
+        $result = Statistics::variance($values, $sample);
+        $expected = 4.571429;
 
-		$result = Statistics::variance($values, $sample);
-		$expected = 4.571429;
+        $this->assertEquals($expected, $result, '', pow(10, -4));
 
-		$this->assertEquals($expected, $result, '', pow(10, -4));
+        //
+        // Floats
+        //
 
-		//
-		// Floats
-		//
+        $values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
+        $sample = true;
 
-		$values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
-		$sample = true;
+        $result = Statistics::variance($values, $sample);
+        $expected = 1.428571;
 
-		$result = Statistics::variance($values, $sample);
-		$expected = 1.428571;
+        $this->assertEquals($expected, $result, '', pow(10, -4));
 
-		$this->assertEquals($expected, $result, '', pow(10, -4));
+        //
+        // Population
+        //
 
-		//
-		// Population
-		//
+        //
+        // Integers
+        //
+        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $sample = false;
 
-		//
-		// Integers
-		//
-		$values = array(2, 4, 4, 4, 5, 5, 7, 9);
-		$sample = false;
+        $result = Statistics::variance($values, $sample);
+        $expected = 4;
 
-		$result = Statistics::variance($values, $sample);
-		$expected = 4;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Floats
+        //
 
-		//
-		// Floats
-		//
+        $values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
+        $sample = false;
 
-		$values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
-		$sample = false;
+        $result = Statistics::variance($values, $sample);
+        $expected = 1.25;
 
-		$result = Statistics::variance($values, $sample);
-		$expected = 1.25;
+        $this->assertSame($expected, $result, '', pow(10, -4));
+    }
 
-		$this->assertSame($expected, $result, '', pow(10, -4));
-	}
+    /**
+     * Test for `standardDeviation`.
+     *
+     * @return void
+     */
+    public function testStandardDeviation()
+    {
+        //
+        // Sample (default)
+        //
 
-/**
- * Test for `standardDeviation`.
- *
- * @return void
- */
-	public function testStandardDeviation() {
-		//
-		// Sample (default)
-		//
+        //
+        // Integers
+        //
+        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $sample = true;
 
-		//
-		// Integers
-		//
-		$values = array(2, 4, 4, 4, 5, 5, 7, 9);
-		$sample = true;
+        $result = Statistics::standardDeviation($values, $sample);
+        $expected = 2.13809;
 
-		$result = Statistics::standardDeviation($values, $sample);
-		$expected = 2.13809;
+        $this->assertEquals($expected, $result, '', pow(10, -4));
 
-		$this->assertEquals($expected, $result, '', pow(10, -4));
+        //
+        // Floats
+        //
 
-		//
-		// Floats
-		//
+        $values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
+        $sample = true;
 
-		$values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
-		$sample = true;
+        $result = Statistics::standardDeviation($values, $sample);
+        $expected = 1.081087;
 
-		$result = Statistics::standardDeviation($values, $sample);
-		$expected = 1.081087;
+        $this->assertEquals($expected, $result, '', pow(10, -4));
 
-		$this->assertEquals($expected, $result, '', pow(10, -4));
+        //
+        // Population
+        //
 
-		//
-		// Population
-		//
+        //
+        // Integers
+        //
+        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $sample = false;
 
-		//
-		// Integers
-		//
-		$values = array(2, 4, 4, 4, 5, 5, 7, 9);
-		$sample = false;
+        $result = Statistics::standardDeviation($values, $sample);
+        $expected = 2.0;
 
-		$result = Statistics::standardDeviation($values, $sample);
-		$expected = 2.0;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Floats
+        //
 
-		//
-		// Floats
-		//
+        $values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
+        $sample = false;
 
-		$values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
-		$sample = false;
+        $result = Statistics::standardDeviation($values, $sample);
+        $expected = 0.9868;
 
-		$result = Statistics::standardDeviation($values, $sample);
-		$expected = 0.9868;
+        $this->assertEquals($expected, $result, '', pow(10, -4));
+    }
 
-		$this->assertEquals($expected, $result, '', pow(10, -4));
-	}
+    /**
+     * Test for `range`.
+     *
+     * @return void
+     */
+    public function testRange()
+    {
+        //
+        // Integers (> 0)
+        //
+        $values = array(4, 6, 10, 15, 18);
+        $result = Statistics::range($values);
+        $expected = 14;
 
-/**
- * Test for `range`.
- *
- * @return void
- */
-	public function testRange() {
-		//
-		// Integers (> 0)
-		//
-		$values = array(4, 6, 10, 15, 18);
-		$result = Statistics::range($values);
-		$expected = 14;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Integers (< 0 and > 0)
+        //
 
-		//
-		// Integers (< 0 and > 0)
-		//
+        $values = array(4, 6, 10, 15, 18, -18);
+        $result = Statistics::range($values);
+        $expected = 36;
 
-		$values = array(4, 6, 10, 15, 18, -18);
-		$result = Statistics::range($values);
-		$expected = 36;
+        $this->assertSame($expected, $result);
 
-		$this->assertSame($expected, $result);
+        //
+        // Floats
+        //
+        $values = array(11, 13, 4.3, 15.5, 14);
+        $result = Statistics::range($values);
+        $expected = 11.2;
 
-		//
-		// Floats
-		//
-		$values = array(11, 13, 4.3, 15.5, 14);
-		$result = Statistics::range($values);
-		$expected = 11.2;
-
-		$this->assertSame($expected, $result);
-	}
-
+        $this->assertSame($expected, $result);
+    }
 }
