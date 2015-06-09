@@ -116,7 +116,7 @@ class Statistics
      * @param float|int $mean The mean
      * @return float|int The square of value - mean
      */
-    protected static function _squaredDifference($value, $mean)
+    protected static function squaredDifference($value, $mean)
     {
         return pow($value - $mean, 2);
     }
@@ -135,7 +135,7 @@ class Statistics
 
         $squaredDifferences = array();
         foreach ($values as $value) {
-            $squaredDifferences[] = self::_squaredDifference($value, $mean);
+            $squaredDifferences[] = self::squaredDifference($value, $mean);
         }
         $sumOfSquaredDifferences = self::sum($squaredDifferences);
 
