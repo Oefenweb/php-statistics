@@ -2,10 +2,8 @@
 namespace Oefenweb\Statistics\Test;
 
 use Oefenweb\Statistics\Statistics;
-use Oefenweb\Statistics\StatisticsError;
-use PHPUnit_Framework_TestCase;
 
-class StatisticsTest extends PHPUnit_Framework_TestCase
+class StatisticsTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
