@@ -169,7 +169,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
             3 => 4,
         );
 
-        $this->assertSame($expected, $result);
+        $this->assertEquals($expected, $result);
 
         //
         // Floats
@@ -187,7 +187,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
             6 => 4,
         );
 
-        $this->assertSame($expected, $result);
+        $this->assertEquals($expected, $result);
 
         //
         // Strings
@@ -202,7 +202,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
             'red' => 4,
         );
 
-        $this->assertSame($expected, $result);
+        $this->assertEquals($expected, $result);
     }
 
     /**
