@@ -88,7 +88,7 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The mode of values as an integer or float
-     * @throws StatisticsError
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function mode($values)
     {
