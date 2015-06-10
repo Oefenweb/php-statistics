@@ -7,38 +7,48 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * Test for `sum`.
+     * Tests `sum`.
+     *
+     *  Integer values.
      *
      * @return void
      */
-    public function testSum()
+    public function testSumIntegers()
     {
-        //
-        // Integers
-        //
-
         $values = array(1, 2, 3, 4, 4);
 
         $result = Statistics::sum($values);
         $expected = 14;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `sum`.
+     *
+     *  Float values.
+     *
+     * @return void
+     */
+    public function testSum()
+    {
         $values = array(-1.0, 2.5, 3.25, 5.75);
 
         $result = Statistics::sum($values);
         $expected = 10.5;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Mixed
-        //
-
+    /**
+     * Tests `sum`.
+     *
+     *  Mixed values.
+     *
+     * @return void
+     */
+    public function testSumMixed()
+    {
         $values = array(-2, 2.5, 3.25, 5.75, 0);
 
         $result = Statistics::sum($values);
@@ -48,27 +58,31 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `min`.
+     * Tests `min`.
+     *
+     *  Integer values.
      *
      * @return void
      */
-    public function testMin()
+    public function testMinIntegers()
     {
-        //
-        // Integers
-        //
-
         $values = array(1, 2, 3, 4, 4);
 
         $result = Statistics::min($values);
         $expected = 1;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Test for `min`.
+     *
+     *  Float values.
+     *
+     * @return void
+     */
+    public function testMinIntegersFloats()
+    {
         $values = array(-1.0, 2.5, 3.25, 5.75);
 
         $result = Statistics::min($values);
@@ -78,27 +92,31 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `max`.
+     * Tests `max`.
+     *
+     *  Integer values.
      *
      * @return void
      */
-    public function testMax()
+    public function testMaxIntegers()
     {
-        //
-        // Integers
-        //
-
         $values = array(1, 2, 3, 4, 4);
 
         $result = Statistics::max($values);
         $expected = 4;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `max`.
+     *
+     *  Float values.
+     *
+     * @return void
+     */
+    public function testMaxFloats()
+    {
         $values = array(-1.0, 2.5, 3.25, 5.75);
 
         $result = Statistics::max($values);
@@ -108,38 +126,48 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `mean`.
+     * Tests `mean`.
+     *
+     *  Integer values.
      *
      * @return void
      */
-    public function testMean()
+    public function testMeanIntegers()
     {
-        //
-        // Integers
-        //
-
         $values = array(1, 2, 3, 4, 4);
 
         $result = Statistics::mean($values);
         $expected = 2.8;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `mean`.
+     *
+     *  Float values.
+     *
+     * @return void
+     */
+    public function testMeanFloats()
+    {
         $values = array(-1.0, 2.5, 3.25, 5.75);
 
         $result = Statistics::mean($values);
         $expected = 2.625;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Mixed
-        //
-
+    /**
+     * Tests `mean`.
+     *
+     *  Mixed values.
+     *
+     * @return void
+     */
+    public function testMeanMixed()
+    {
         $values = array(-2, 2.5, 3.25, 5.75, 0);
 
         $result = Statistics::mean($values);
@@ -149,16 +177,14 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `frequency`.
+     * Tests `frequency`.
+     *
+     *  Integer values.
      *
      * @return void
      */
-    public function testFrequency()
+    public function testFrequencyIntegers()
     {
-        //
-        // Integers
-        //
-
         $values = array(1, 1, 2, 3, 3, 3, 3, 4);
 
         $result = Statistics::frequency($values);
@@ -170,11 +196,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `frequency`.
+     *
+     *  Float values.
+     *
+     * @return void
+     */
+    public function testFrequencyFloats()
+    {
         $values = array(1, 3, 6, 6, 6, 6, 7.12, 7.12, 12, 12, 17);
 
         $result = Statistics::frequency($values);
@@ -188,11 +220,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($expected, $result);
+    }
 
-        //
-        // Strings
-        //
-
+    /**
+     * Tests `frequency`.
+     *
+     *  String values.
+     *
+     * @return void
+     */
+    public function testFrequencyStrings()
+    {
         $values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
 
         $result = Statistics::frequency($values);
@@ -206,16 +244,14 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `mode`.
+     * Tests `mode`.
+     *
+     *  Integer values.
      *
      * @return void
      */
-    public function testMode()
+    public function testModeIntegers()
     {
-        //
-        // Integers
-        //
-
         $values = array(3);
 
         $result = Statistics::mode($values);
@@ -236,11 +272,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 6;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Strings
-        //
-
+    /**
+     * Tests `mode`.
+     *
+     *  String values.
+     *
+     * @return void
+     */
+    public function testModeStrings()
+    {
         $values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
 
         $result = Statistics::mode($values);
@@ -250,7 +292,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `mode`.
+     * Tests `mode`.
      *
      * @return void
      * @expectedException \Oefenweb\Statistics\StatisticsError
@@ -263,19 +305,14 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `variance`.
+     * Tests `variance`.
+     *
+     *  Sample (default), integer values.
      *
      * @return void
      */
-    public function testVariance()
+    public function testVarianceSampleIntegers()
     {
-        //
-        // Sample (default)
-        //
-
-        //
-        // Integers
-        //
         $values = array(2, 4, 4, 4, 5, 5, 7, 9);
         $sample = true;
 
@@ -283,11 +320,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 4.571429;
 
         $this->assertEquals($expected, $result, '', pow(10, -4));
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `variance`.
+     *
+     *  Sample (default), float values.
+     *
+     * @return void
+     */
+    public function testVarianceSampleFloats()
+    {
         $values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
         $sample = true;
 
@@ -295,14 +338,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 1.428571;
 
         $this->assertEquals($expected, $result, '', pow(10, -4));
+    }
 
-        //
-        // Population
-        //
-
-        //
-        // Integers
-        //
+    /**
+     * Tests `variance`.
+     *
+     *  Population, integer values.
+     *
+     * @return void
+     */
+    public function testVariancePopulationIntegers()
+    {
         $values = array(2, 4, 4, 4, 5, 5, 7, 9);
         $sample = false;
 
@@ -310,11 +356,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 4;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `variance`.
+     *
+     *  Population, float values.
+     *
+     * @return void
+     */
+    public function testVariancePopulationFloats()
+    {
         $values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
         $sample = false;
 
@@ -325,19 +377,14 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `standardDeviation`.
+     * Tests `standardDeviation`.
+     *
+     *  Sample (default), integers values.
      *
      * @return void
      */
-    public function testStandardDeviation()
+    public function testStandardDeviationSampleIntegers()
     {
-        //
-        // Sample (default)
-        //
-
-        //
-        // Integers
-        //
         $values = array(2, 4, 4, 4, 5, 5, 7, 9);
         $sample = true;
 
@@ -345,11 +392,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 2.13809;
 
         $this->assertEquals($expected, $result, '', pow(10, -4));
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `standardDeviation`.
+     *
+     *  Sample (default), float values.
+     *
+     * @return void
+     */
+    public function testStandardDeviationSampleFloats()
+    {
         $values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
         $sample = true;
 
@@ -357,14 +410,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 1.081087;
 
         $this->assertEquals($expected, $result, '', pow(10, -4));
+    }
 
-        //
-        // Population
-        //
-
-        //
-        // Integers
-        //
+    /**
+     * Tests `standardDeviation`.
+     *
+     *  Population, integer values.
+     *
+     * @return void
+     */
+    public function testStandardDeviationPopulationIntegers()
+    {
         $values = array(2, 4, 4, 4, 5, 5, 7, 9);
         $sample = false;
 
@@ -372,11 +428,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
         $expected = 2.0;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
-
+    /**
+     * Tests `standardDeviation`.
+     *
+     *  Population, floats values.
+     *
+     * @return void
+     */
+    public function testStandardDeviationPopulationFloats()
+    {
         $values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
         $sample = false;
 
@@ -387,34 +449,46 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for `range`.
+     * Tests `range`.
+     *
+     *  (Unsigned) integer values.
      *
      * @return void
      */
-    public function testRange()
+    public function testRangeIntUnsigned()
     {
-        //
-        // Integers (> 0)
-        //
         $values = array(4, 6, 10, 15, 18);
         $result = Statistics::range($values);
         $expected = 14;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Integers (< 0 and > 0)
-        //
-
+    /**
+     * Tests `range`.
+     *
+     *  (Signed) integer values.
+     *
+     * @return void
+     */
+    public function testRangeIntSigned()
+    {
         $values = array(4, 6, 10, 15, 18, -18);
         $result = Statistics::range($values);
         $expected = 36;
 
         $this->assertSame($expected, $result);
+    }
 
-        //
-        // Floats
-        //
+    /**
+     * Tests `range`.
+     *
+     *  Float values.
+     *
+     * @return void
+     */
+    public function testRangeFloats()
+    {
         $values = array(11, 13, 4.3, 15.5, 14);
         $result = Statistics::range($values);
         $expected = 11.2;
