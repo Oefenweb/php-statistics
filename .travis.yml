@@ -1,0 +1,30 @@
+sudo: false
+
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+
+matrix:
+  include:
+    - php: 5.6
+      env:
+        - COVERALLS=1
+    - php: 5.6
+      env:
+        - PHPCS=1
+
+before_script: .travis/before-script.sh
+script: .travis/script.sh
+after_success: .travis/after-success.sh
+
+notifications:
+  email: false
+  hipchat:
+    rooms:
+      secure: qGVCZWkGB04MObrV6LNcrmm2bvJY0FOW0trXNDzEpW5fIaHEzUtjaJaNuVcKwoJLzZh1Hgh7b/Z7n3ITTGHo1t9erh8JIGBR+iV0dvV8PEfIJmTaqOk+iRQ4XD801wsIzBCznc4mIB/yqyO9Ou0KjGeCAMgRbTuwvC7vxoHKdPEYCyj8CybW2RKoSv6aNuZo1vP8+aMpYi7U5MeX55LO9jTdlay7plrbyvnCubgBFteR1Nxtpcm/tnwdSR6X6cE/oNaHYNkPtNsfEA+0hEFQXCGTMRIcZveEfzHYJsu61cKBmP/nmnx23vQOtaXhoicmngQpfYZlAQA7GwsgEDmMa4LKlr0yt/i9aRXJY90Prt0CaLjzK0zL8yKvUGZjMj+lRV840TY5WLNVK9jYptyQi593b4GKM1BoClzcbeXzmgXt+6jbv1Geu8NsEjXAowrf+ChsvUBZy1b5NEi8M4ORuHy/xz0M/ntchYsdDVzwU2vY+nDzJJ0AJq3+2i8vIcaecXDGogLu3r9Fx5sYxFQEa0F3YLYnpKROaWosXHe+9rbSLdfcW63RuF9CZ3ludvbo6IIWPdM0YyDxtkbOPVzNwLArcqFIhWCd7xH/rU+axv9DJh8JoYJig1xYKrLslyYebEftf7vcm7fdLFYENekKEwRzzYyR0GGpd1yFwc+lLco=
