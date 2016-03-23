@@ -15,7 +15,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testSumIntegers()
     {
-        $values = array(1, 2, 3, 4, 4);
+        $values = [1, 2, 3, 4, 4];
 
         $result = Statistics::sum($values);
         $expected = 14;
@@ -32,7 +32,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testSum()
     {
-        $values = array(-1.0, 2.5, 3.25, 5.75);
+        $values = [-1.0, 2.5, 3.25, 5.75];
 
         $result = Statistics::sum($values);
         $expected = 10.5;
@@ -49,7 +49,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testSumMixed()
     {
-        $values = array(-2, 2.5, 3.25, 5.75, 0);
+        $values = [-2, 2.5, 3.25, 5.75, 0];
 
         $result = Statistics::sum($values);
         $expected = 9.5;
@@ -66,7 +66,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMinIntegers()
     {
-        $values = array(1, 2, 3, 4, 4);
+        $values = [1, 2, 3, 4, 4];
 
         $result = Statistics::min($values);
         $expected = 1;
@@ -83,7 +83,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMinIntegersFloats()
     {
-        $values = array(-1.0, 2.5, 3.25, 5.75);
+        $values = [-1.0, 2.5, 3.25, 5.75];
 
         $result = Statistics::min($values);
         $expected = -1.0;
@@ -100,7 +100,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMaxIntegers()
     {
-        $values = array(1, 2, 3, 4, 4);
+        $values = [1, 2, 3, 4, 4];
 
         $result = Statistics::max($values);
         $expected = 4;
@@ -117,7 +117,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMaxFloats()
     {
-        $values = array(-1.0, 2.5, 3.25, 5.75);
+        $values = [-1.0, 2.5, 3.25, 5.75];
 
         $result = Statistics::max($values);
         $expected = 5.75;
@@ -134,7 +134,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMeanIntegers()
     {
-        $values = array(1, 2, 3, 4, 4);
+        $values = [1, 2, 3, 4, 4];
 
         $result = Statistics::mean($values);
         $expected = 2.8;
@@ -151,7 +151,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMeanFloats()
     {
-        $values = array(-1.0, 2.5, 3.25, 5.75);
+        $values = [-1.0, 2.5, 3.25, 5.75];
 
         $result = Statistics::mean($values);
         $expected = 2.625;
@@ -168,7 +168,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testMeanMixed()
     {
-        $values = array(-2, 2.5, 3.25, 5.75, 0);
+        $values = [-2, 2.5, 3.25, 5.75, 0];
 
         $result = Statistics::mean($values);
         $expected = 1.9;
@@ -185,15 +185,15 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testFrequencyIntegers()
     {
-        $values = array(1, 1, 2, 3, 3, 3, 3, 4);
+        $values = [1, 1, 2, 3, 3, 3, 3, 4];
 
         $result = Statistics::frequency($values);
-        $expected = array(
+        $expected = [
             4 => 1,
             2 => 1,
             1 => 2,
             3 => 4,
-        );
+        ];
 
         $this->assertEquals($expected, $result);
     }
@@ -207,17 +207,17 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testFrequencyFloats()
     {
-        $values = array(1, 3, 6, 6, 6, 6, 7.12, 7.12, 12, 12, 17);
+        $values = [1, 3, 6, 6, 6, 6, 7.12, 7.12, 12, 12, 17];
 
         $result = Statistics::frequency($values);
-        $expected = array(
+        $expected = [
             17 => 1,
             1 => 1,
             3 => 1,
             12 => 2,
             '7.12' => 2,
             6 => 4,
-        );
+        ];
 
         $this->assertEquals($expected, $result);
     }
@@ -231,14 +231,14 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testFrequencyStrings()
     {
-        $values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
+        $values = ['red', 'blue', 'blue', 'red', 'green', 'red', 'red'];
 
         $result = Statistics::frequency($values);
-        $expected = array(
+        $expected = [
             'green' => 1,
             'blue' => 2,
             'red' => 4,
-        );
+        ];
 
         $this->assertEquals($expected, $result);
     }
@@ -252,21 +252,21 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testModeIntegers()
     {
-        $values = array(3);
+        $values = [3];
 
         $result = Statistics::mode($values);
         $expected = 3;
 
         $this->assertSame($expected, $result);
 
-        $values = array(1, 1, 2, 3, 3, 3, 3, 4);
+        $values = [1, 1, 2, 3, 3, 3, 3, 4];
 
         $result = Statistics::mode($values);
         $expected = 3;
 
         $this->assertSame($expected, $result);
 
-        $values = array(1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17);
+        $values = [1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17];
 
         $result = Statistics::mode($values);
         $expected = 6;
@@ -283,7 +283,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testModeStrings()
     {
-        $values = array('red', 'blue', 'blue', 'red', 'green', 'red', 'red');
+        $values = ['red', 'blue', 'blue', 'red', 'green', 'red', 'red'];
 
         $result = Statistics::mode($values);
         $expected = 'red';
@@ -299,7 +299,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testModeNotExactlyOne()
     {
-        $values = array(1, 1, 2, 4, 4);
+        $values = [1, 1, 2, 4, 4];
 
         Statistics::mode($values);
     }
@@ -313,7 +313,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testVarianceSampleIntegers()
     {
-        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = true;
 
         $result = Statistics::variance($values, $sample);
@@ -331,7 +331,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testVarianceSampleFloats()
     {
-        $values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
+        $values = [0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25];
         $sample = true;
 
         $result = Statistics::variance($values, $sample);
@@ -349,7 +349,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testVariancePopulationIntegers()
     {
-        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = false;
 
         $result = Statistics::variance($values, $sample);
@@ -367,7 +367,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testVariancePopulationFloats()
     {
-        $values = array(0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25);
+        $values = [0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25];
         $sample = false;
 
         $result = Statistics::variance($values, $sample);
@@ -385,7 +385,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testStandardDeviationSampleIntegers()
     {
-        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = true;
 
         $result = Statistics::standardDeviation($values, $sample);
@@ -403,7 +403,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testStandardDeviationSampleFloats()
     {
-        $values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
+        $values = [1.5, 2.5, 2.5, 2.75, 3.25, 4.75];
         $sample = true;
 
         $result = Statistics::standardDeviation($values, $sample);
@@ -421,7 +421,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testStandardDeviationPopulationIntegers()
     {
-        $values = array(2, 4, 4, 4, 5, 5, 7, 9);
+        $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = false;
 
         $result = Statistics::standardDeviation($values, $sample);
@@ -439,7 +439,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testStandardDeviationPopulationFloats()
     {
-        $values = array(1.5, 2.5, 2.5, 2.75, 3.25, 4.75);
+        $values = [1.5, 2.5, 2.5, 2.75, 3.25, 4.75];
         $sample = false;
 
         $result = Statistics::standardDeviation($values, $sample);
@@ -457,7 +457,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testRangeIntUnsigned()
     {
-        $values = array(4, 6, 10, 15, 18);
+        $values = [4, 6, 10, 15, 18];
         $result = Statistics::range($values);
         $expected = 14;
 
@@ -473,7 +473,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testRangeIntSigned()
     {
-        $values = array(4, 6, 10, 15, 18, -18);
+        $values = [4, 6, 10, 15, 18, -18];
         $result = Statistics::range($values);
         $expected = 36;
 
@@ -489,7 +489,7 @@ class StatisticsTest extends \PHPUnit_Framework_TestCase
      */
     public function testRangeFloats()
     {
-        $values = array(11, 13, 4.3, 15.5, 14);
+        $values = [11, 13, 4.3, 15.5, 14];
         $result = Statistics::range($values);
         $expected = 11.2;
 
