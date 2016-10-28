@@ -20,8 +20,7 @@ class Statistics
      */
     public static function sum($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires an array as an arguement');
         }
 
@@ -37,8 +36,7 @@ class Statistics
      */
     public static function min($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires an array as an arguement');
         }
 
@@ -54,8 +52,7 @@ class Statistics
      */
     public static function max($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires an array as an arguement');
         }
 
@@ -71,8 +68,7 @@ class Statistics
      */
     public static function mean($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires an array as an arguement');
         }
 
@@ -90,8 +86,7 @@ class Statistics
      */
     public static function frequency($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires an array as an arguement');
         }
 
@@ -124,8 +119,7 @@ class Statistics
      */
     public static function mode($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires an array as an arguement');
         }
 
@@ -156,13 +150,11 @@ class Statistics
      */
     protected static function squaredDifference($value, $mean)
     {
-        if (!is_int($value) && !is_float($value))
-        {
+        if (!is_int($value) && !is_float($value)) {
             throw new StatisticsError('This function requires the first arguement to be an integer or a float');
         }
 
-        if (!is_int($mean) && !is_float($mean))
-        {
+        if (!is_int($mean) && !is_float($mean)) {
           throw new StatisticsError('This function requires the second arguement to be an integer or a float');
         }
 
@@ -179,13 +171,11 @@ class Statistics
      */
     public static function variance($values, $sample = true)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires the first arguemnt to be an array');
         }
 
-        if (!is_bool($values))
-        {
+        if (!is_bool($values)) {
             throw new StatisticsError('This function requires the second arguemnt to be a boolean');
         }
 
@@ -217,13 +207,11 @@ class Statistics
      */
     public static function standardDeviation($values, $sample = true)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new StatisticsError('This function requires the first arguemnt to be an array');
         }
 
-        if (!is_bool($values))
-        {
+        if (!is_bool($values)) {
             throw new StatisticsError('This function requires the second arguemnt to be a boolean');
         }
 
@@ -239,8 +227,7 @@ class Statistics
      */
     public static function range($values)
     {
-        if (!is_array($values))
-        {
+        if (!is_array($values)) {
             throw new InputError('This function requires an array as an arguement');
         }
 
