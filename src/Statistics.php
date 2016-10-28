@@ -152,6 +152,7 @@ class Statistics
      * @param float|int $value The input value
      * @param float|int $mean The mean
      * @return float|int The square of value - mean
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     protected static function squaredDifference($value, $mean)
     {
@@ -212,7 +213,7 @@ class Statistics
      * @param array $values The input values
      * @param bool $sample Whether or not to compensate for small samples (n - 1), defaults to true
      * @return float|int The standard deviation of values as an integer or float
-     * @throws \Oefenweb\Statistics\InputError
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function standardDeviation($values, $sample = true)
     {
@@ -234,6 +235,7 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The range of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function range($values)
     {
