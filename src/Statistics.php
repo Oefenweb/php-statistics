@@ -2,6 +2,7 @@
 namespace Oefenweb\Statistics;
 
 use Oefenweb\Statistics\StatisticsError;
+use Oefenweb\Statistics\InputError;
 
 /**
  * Statistics Library.
@@ -15,9 +16,14 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The sum of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function sum($values)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires an array as an arguement');
+        }
+
         return array_sum($values);
     }
 
@@ -26,9 +32,14 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The minimum of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function min($values)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires an array as an arguement');
+        }
+
         return min($values);
     }
 
@@ -37,9 +48,14 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The maximum of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function max($values)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires an array as an arguement');
+        }
+
         return max($values);
     }
 
@@ -48,9 +64,14 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The mean of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function mean($values)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires an array as an arguement');
+        }
+
         $numberOfValues = count($values);
 
         return self::sum($values) / $numberOfValues;
@@ -61,9 +82,15 @@ class Statistics
      *
      * @param array $values The input values
      * @return array The frequency table
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function frequency($values)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires an array as an arguement');
+        }
+
+
         $frequency = [];
         foreach ($values as $value) {
             // Floats cannot be indices
@@ -92,6 +119,10 @@ class Statistics
      */
     public static function mode($values)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires an array as an arguement');
+        }
+
         $frequency = self::frequency($values);
 
         if (count($frequency) === 1) {
@@ -115,9 +146,18 @@ class Statistics
      * @param float|int $value The input value
      * @param float|int $mean The mean
      * @return float|int The square of value - mean
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     protected static function squaredDifference($value, $mean)
     {
+        if (!is_int($value) && !is_float($value)) {
+            throw new StatisticsError('This function requires the first arguement to be an integer or a float');
+        }
+
+        if (!is_int($mean) && !is_float($mean)) {
+            throw new StatisticsError('This function requires the second arguement to be an integer or a float');
+        }
+
         return pow($value - $mean, 2);
     }
 
@@ -127,9 +167,18 @@ class Statistics
      * @param array $values The input values
      * @param bool $sample Whether or not to compensate for small samples (n - 1), defaults to true
      * @return float|int The variance of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function variance($values, $sample = true)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires the first arguemnt to be an array');
+        }
+
+        if (!is_bool($values)) {
+            throw new StatisticsError('This function requires the second arguemnt to be a boolean');
+        }
+
         $numberOfValues = count($values);
         $mean = self::mean($values);
 
@@ -154,9 +203,18 @@ class Statistics
      * @param array $values The input values
      * @param bool $sample Whether or not to compensate for small samples (n - 1), defaults to true
      * @return float|int The standard deviation of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function standardDeviation($values, $sample = true)
     {
+        if (!is_array($values)) {
+            throw new StatisticsError('This function requires the first arguemnt to be an array');
+        }
+
+        if (!is_bool($values)) {
+            throw new StatisticsError('This function requires the second arguemnt to be a boolean');
+        }
+
         return sqrt(self::variance($values, $sample));
     }
 
@@ -165,9 +223,14 @@ class Statistics
      *
      * @param array $values The input values
      * @return float|int The range of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function range($values)
     {
+        if (!is_array($values)) {
+            throw new InputError('This function requires an array as an arguement');
+        }
+
         return self::max($values) - self::min($values);
     }
 }
