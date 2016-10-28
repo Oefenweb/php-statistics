@@ -155,7 +155,7 @@ class Statistics
         }
 
         if (!is_int($mean) && !is_float($mean)) {
-          throw new StatisticsError('This function requires the second arguement to be an integer or a float');
+            throw new StatisticsError('This function requires the second arguement to be an integer or a float');
         }
 
         return pow($value - $mean, 2);
