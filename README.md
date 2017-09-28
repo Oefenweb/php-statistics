@@ -1,6 +1,6 @@
 # php-statistics
 
-[![Build Status](https://travis-ci.org/Oefenweb/php-statistics.svg?branch=master)](https://travis-ci.org/Oefenweb/php-statistics) [![PHP 7 ready](http://php7ready.timesplinter.ch/Oefenweb/php-statistics/badge.svg)](https://travis-ci.org/Oefenweb/php-statistics) [![Coverage Status](https://coveralls.io/repos/Oefenweb/php-statistics/badge.png)](https://coveralls.io/r/Oefenweb/php-statistics) [![Packagist downloads](http://img.shields.io/packagist/dt/Oefenweb/statistics.svg)](https://packagist.org/packages/oefenweb/statistics) [![Code Climate](https://codeclimate.com/github/Oefenweb/php-statistics/badges/gpa.svg)](https://codeclimate.com/github/Oefenweb/php-statistics)
+[![Build Status](https://travis-ci.org/Oefenweb/php-statistics.svg?branch=master)](https://travis-ci.org/Oefenweb/php-statistics) [![PHP 7 ready](http://php7ready.timesplinter.ch/Oefenweb/php-statistics/badge.svg)](https://travis-ci.org/Oefenweb/php-statistics) [![codecov](https://codecov.io/gh/Oefenweb/php-statistics/branch/master/graph/badge.svg)](https://codecov.io/gh/Oefenweb/php-statistics) [![Packagist downloads](http://img.shields.io/packagist/dt/Oefenweb/statistics.svg)](https://packagist.org/packages/oefenweb/statistics) [![Code Climate](https://codeclimate.com/github/Oefenweb/php-statistics/badges/gpa.svg)](https://codeclimate.com/github/Oefenweb/php-statistics)
 
 Statistics library for PHP.
 
