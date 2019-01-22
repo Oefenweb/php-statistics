@@ -2,8 +2,9 @@
 namespace Oefenweb\Statistics\Test;
 
 use Oefenweb\Statistics\Statistics;
+use PHPUnit\Framework\TestCase;
 
-class StatisticsTest extends \PHPUnit_Framework_TestCase
+class StatisticsTest extends TestCase
 {
 
     /**
