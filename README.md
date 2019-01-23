@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/Oefenweb/php-statistics/branch/master/graph/badge.svg)](https://codecov.io/gh/Oefenweb/php-statistics)
 [![Packagist downloads](http://img.shields.io/packagist/dt/Oefenweb/statistics.svg)](https://packagist.org/packages/oefenweb/statistics)
 [![Code Climate](https://codeclimate.com/github/Oefenweb/php-statistics/badges/gpa.svg)](https://codeclimate.com/github/Oefenweb/php-statistics)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Oefenweb/php-statistics/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Oefenweb/php-statistics/?branch=master)
 
 Statistics library for PHP.
 
