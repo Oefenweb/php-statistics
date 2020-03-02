@@ -11,7 +11,7 @@ Statistics library for PHP.
 
 ## Requirements
 
-* PHP 7.0.0 or greater.
+* PHP 7.2.0 or greater.
 
 ## Usage
 
