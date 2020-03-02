@@ -2,6 +2,7 @@
 namespace Oefenweb\Statistics\Test;
 
 use Oefenweb\Statistics\Statistics;
+use Oefenweb\Statistics\StatisticsError;
 use PHPUnit\Framework\TestCase;
 
 class StatisticsTest extends TestCase
@@ -375,6 +376,21 @@ class StatisticsTest extends TestCase
         $expected = 1.25;
 
         $this->assertSame($expected, $result, '', pow(10, -4));
+    }
+
+    /**
+     * Test `variance`
+     *
+     * At least two data points.
+     *
+     * @return void
+     */
+    public function testVarianceNotAtLeastTwo()
+    {
+        $this->expectException(StatisticsError::class);
+
+        $values = [1];
+        Statistics::variance($values);
     }
 
     /**

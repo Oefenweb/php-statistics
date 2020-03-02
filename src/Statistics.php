@@ -127,10 +127,16 @@ class Statistics
      * @param array $values The input values
      * @param bool $sample Whether or not to compensate for small samples (n - 1), defaults to true
      * @return float|int The variance of values as an integer or float
+     * @throws \Oefenweb\Statistics\StatisticsError
      */
     public static function variance($values, $sample = true)
     {
         $numberOfValues = count($values);
+
+        if ($numberOfValues < 2) {
+            throw new StatisticsError('The variance requires at least two data points.');
+        }
+
         $mean = self::mean($values);
 
         $squaredDifferences = [];
