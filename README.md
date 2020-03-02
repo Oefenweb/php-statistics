@@ -16,48 +16,66 @@ Statistics library for PHP.
 ## Usage
 
 ### Sum
-```
-Statistics::sum([1, 2, 3]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::sum([1, 2, 3]); // 6
 ```
 
 ### Minimum
-```
-Statistics::min([1, 2, 3]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::min([1, 2, 3]); // 1
 ```
 
 ### Maximum
-```
-Statistics::max([1, 2, 3]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::max([1, 2, 3]); // 3
 ```
 
 ### Mean
-```
-Statistics::mean([1, 2, 3]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::mean([1, 2, 3]); // 2
 ```
 
 ### Frequency
-```
-Statistics::frequency([1, 2, 3, 3, 3]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::frequency([1, 2, 3, 3, 3]); // [1 => 1, 2 => 1, 3 => 3]
 ```
 
 ### Mode
-```
-Statistics::mode([1, 2, 2, 3]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::mode([1, 2, 2, 3]); // 2
 ```
 
 ### Variance (sample and population)
-```
-Statistics::variance([1, 2, 3]);
-Statistics::variance([1, 2, 3], false);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::variance([1, 2, 3]); // 1
+Statistics::variance([1, 2, 3], false); // 0.66666666666667
 ```
 
 ### Standard deviation (sample and population)
-```
-Statistics::standardDeviation([1, 2, 3]);
-Statistics::standardDeviation([1, 2, 3], false);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::standardDeviation([1, 2, 3]); // 1.0
+Statistics::standardDeviation([1, 2, 3], false); // 0.81649658092773
 ```
 
 ### Range
-```
-Statistics::range([4, 6, 10, 15, 18]);
+```php
+use Oefenweb\Statistics\Statistics;
+
+Statistics::range([4, 6, 10, 15, 18]); // 14
 ```
