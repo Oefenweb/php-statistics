@@ -322,7 +322,7 @@ class StatisticsTest extends TestCase
             $actual = Statistics::variance($values, $sample);
             $expected = 4.571429;
 
-            $this->_assertEqualsWithDelta($expected, $actual);
+            $this->assertEqualsWithDeltaPoly($expected, $actual);
     }
 
     /**
@@ -340,7 +340,7 @@ class StatisticsTest extends TestCase
             $actual = Statistics::variance($values, $sample);
             $expected = 1.428571;
 
-            $this->_assertEqualsWithDelta($expected, $actual);
+            $this->assertEqualsWithDeltaPoly($expected, $actual);
     }
 
     /**
@@ -409,7 +409,7 @@ class StatisticsTest extends TestCase
             $actual = Statistics::standardDeviation($values, $sample);
             $expected = 2.13809;
 
-            $this->_assertEqualsWithDelta($expected, $actual);
+            $this->assertEqualsWithDeltaPoly($expected, $actual);
     }
 
     /**
@@ -427,7 +427,7 @@ class StatisticsTest extends TestCase
             $actual = Statistics::standardDeviation($values, $sample);
             $expected = 1.081087;
 
-            $this->_assertEqualsWithDelta($expected, $actual);
+            $this->assertEqualsWithDeltaPoly($expected, $actual);
     }
 
     /**
@@ -463,7 +463,7 @@ class StatisticsTest extends TestCase
             $actual = Statistics::standardDeviation($values, $sample);
             $expected = 0.9868;
 
-            $this->_assertEqualsWithDelta($expected, $actual);
+            $this->assertEqualsWithDeltaPoly($expected, $actual);
     }
 
     /**
@@ -521,11 +521,12 @@ class StatisticsTest extends TestCase
      * @param mixed $actual
      * @param float $delta
      */
-    protected function _assertEqualsWithDelta($expected, $actual, float $delta = 0.0001) {
-            if (method_exists($this, 'assertEqualsWithDelta')) {
-                $this->assertEqualsWithDelta($expected, $actual, $delta);
-            } else {
-                $this->assertEquals($expected, $actual, '', $delta);
-            }
+    protected function assertEqualsWithDeltaPoly($expected, $actual, float $delta = 0.0001)
+    {
+        if (method_exists($this, 'assertEqualsWithDelta')) {
+            $this->assertEqualsWithDelta($expected, $actual, $delta);
+        } else {
+            $this->assertEquals($expected, $actual, '', $delta);
+        }
     }
 }
