@@ -3,18 +3,16 @@ sudo: false
 language: php
 
 php:
-  - 7.0
-  - 7.1
   - 7.2
   - 7.3
   - 7.4
 
 matrix:
   include:
-    - php: 7.1
+    - php: 7.2
       env:
         - CODECOVERAGE=1
-    - php: 7.1
+    - php: 7.2
       env:
         - PHPCS=1
 
@@ -24,6 +22,6 @@ after_success: .travis/after-success.sh
 
 notifications:
   email: false
-  hipchat:
+  slack:
     rooms:
-      secure: qGVCZWkGB04MObrV6LNcrmm2bvJY0FOW0trXNDzEpW5fIaHEzUtjaJaNuVcKwoJLzZh1Hgh7b/Z7n3ITTGHo1t9erh8JIGBR+iV0dvV8PEfIJmTaqOk+iRQ4XD801wsIzBCznc4mIB/yqyO9Ou0KjGeCAMgRbTuwvC7vxoHKdPEYCyj8CybW2RKoSv6aNuZo1vP8+aMpYi7U5MeX55LO9jTdlay7plrbyvnCubgBFteR1Nxtpcm/tnwdSR6X6cE/oNaHYNkPtNsfEA+0hEFQXCGTMRIcZveEfzHYJsu61cKBmP/nmnx23vQOtaXhoicmngQpfYZlAQA7GwsgEDmMa4LKlr0yt/i9aRXJY90Prt0CaLjzK0zL8yKvUGZjMj+lRV840TY5WLNVK9jYptyQi593b4GKM1BoClzcbeXzmgXt+6jbv1Geu8NsEjXAowrf+ChsvUBZy1b5NEi8M4ORuHy/xz0M/ntchYsdDVzwU2vY+nDzJJ0AJq3+2i8vIcaecXDGogLu3r9Fx5sYxFQEa0F3YLYnpKROaWosXHe+9rbSLdfcW63RuF9CZ3ludvbo6IIWPdM0YyDxtkbOPVzNwLArcqFIhWCd7xH/rU+axv9DJh8JoYJig1xYKrLslyYebEftf7vcm7fdLFYENekKEwRzzYyR0GGpd1yFwc+lLco=
+      secure: "GKJEIVB0VV/H0ldrTWK9PHTzWgh9sCTan3UNwHVzXqNaLI8cA6qB5y2ap2iNzurrPyQ1mZUHYtGMMFjwhp7PsB4db1x6xtjpfKzWiL+EsQDnLMx/zJgx0MVbmE1+7gBYgFNRVgZDyFSL9wRj5G0mXowpa0NSS5P5UHVVbYxzCgM+RBiwqVQr+jBXH55rOLqWS+RwleX32e2rEjJP9Z3oHAaVCB7BXoSiybm02xAWq2wurbSTN0EAqpMDuXR4M+9wQrdYDV7PFyJ4yUUXj5riEOKmN77ztk+WvqVYUm8vlQOdV7THw/bv7Nm+Oej8MSIcatAMwiaqNfs0eAaZhEmiU8mZgr7MyS4iQsDdK7R//DdYjmAIPoefH7xDupe1ZiQPupUN6o2X1YIp7B1gMM0+ZzQUlqfSY6ZHVldAokUCrmHlwbDZJ61ESley6hnk+WO3fBdXa4Mp77CNBtszlSbgdzJhe6uDEf+466AsNZcy59YKsTQKk5TxjMg89kOHmSxnP/lWdyC7pibARLVySQZkitCra38pNNE2N9rUvTRICW/G589PsDdCA3LnYmV9tvFDeks4EuISWl1657TZWMC3ErnlT22YbHrxsXaFS/B30iPNY4+oruIMMjNITUNNjyefYMTIFLTPz7Tfrtufm0+wLkzEsuaaTJ4U1wadS+L+aLo="

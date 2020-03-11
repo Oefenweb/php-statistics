@@ -14,9 +14,11 @@ if [ "${PHPCS}" = '1' ]; then
   composer require --dev 'squizlabs/php_codesniffer=2.*';
 else
   PHP_VERSION="$(php -r 'echo phpversion();')";
-  if [ "${PHP_VERSION:0:3}" == '7.0' ]; then
-    composer require --dev 'phpunit/phpunit=^6';
-  else
+  if [ "${PHP_VERSION:0:3}" == '7.1' ]; then
     composer require --dev 'phpunit/phpunit=^7';
+  elif [ "${PHP_VERSION:0:3}" == '7.2' ]; then
+    composer require --dev 'phpunit/phpunit=^8';
+  else
+    composer require --dev 'phpunit/phpunit=^9';
   fi
 fi

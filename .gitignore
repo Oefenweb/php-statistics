@@ -5,22 +5,29 @@
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
+Icon
+
 ehthumbs.db
 Thumbs.db
 
 # IDE files #
-#################
+#############
 /.settings
 /.buildpath
 /.project
 /nbproject
+/.idea
+/.vscode
+*.iml
 *.komodoproject
 *.kpf
 
 # Other files #
 ###############
 !empty
-/node_modules
-/build
-/vendor
+**/node_modules
+
+# Test related files #
+######################
+/builds
+/.phpunit.result.cache
