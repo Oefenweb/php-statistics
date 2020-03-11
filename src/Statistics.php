@@ -16,7 +16,7 @@ class Statistics
      * @param array $values The input values
      * @return float|int The sum of values as an integer or float
      */
-    public static function sum($values)
+    public static function sum(array $values)
     {
         return array_sum($values);
     }
@@ -27,7 +27,7 @@ class Statistics
      * @param array $values The input values
      * @return float|int The minimum of values as an integer or float
      */
-    public static function min($values)
+    public static function min(array $values)
     {
         return min($values);
     }
@@ -38,7 +38,7 @@ class Statistics
      * @param array $values The input values
      * @return float|int The maximum of values as an integer or float
      */
-    public static function max($values)
+    public static function max(array $values)
     {
         return max($values);
     }
@@ -49,7 +49,7 @@ class Statistics
      * @param array $values The input values
      * @return float|int The mean of values as an integer or float
      */
-    public static function mean($values)
+    public static function mean(array $values)
     {
         $numberOfValues = count($values);
 
@@ -62,7 +62,7 @@ class Statistics
      * @param array $values The input values
      * @return array The frequency table
      */
-    public static function frequency($values)
+    public static function frequency(array $values): array
     {
         $frequency = [];
         foreach ($values as $value) {
@@ -90,7 +90,7 @@ class Statistics
      * @return float|int The mode of values as an integer or float
      * @throws \Oefenweb\Statistics\StatisticsError
      */
-    public static function mode($values)
+    public static function mode(array $values)
     {
         $frequency = self::frequency($values);
 
@@ -129,7 +129,7 @@ class Statistics
      * @return float|int The variance of values as an integer or float
      * @throws \Oefenweb\Statistics\StatisticsError
      */
-    public static function variance($values, $sample = true)
+    public static function variance(array $values, bool $sample = true)
     {
         $numberOfValues = count($values);
 
@@ -161,7 +161,7 @@ class Statistics
      * @param bool $sample Whether or not to compensate for small samples (n - 1), defaults to true
      * @return float|int The standard deviation of values as an integer or float
      */
-    public static function standardDeviation($values, $sample = true)
+    public static function standardDeviation(array $values, bool $sample = true)
     {
         return sqrt(self::variance($values, $sample));
     }
@@ -172,7 +172,7 @@ class Statistics
      * @param array $values The input values
      * @return float|int The range of values as an integer or float
      */
-    public static function range($values)
+    public static function range(array $values)
     {
         return self::max($values) - self::min($values);
     }

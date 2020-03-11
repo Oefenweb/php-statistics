@@ -19,10 +19,10 @@ class StatisticsTest extends TestCase
     {
         $values = [1, 2, 3, 4, 4];
 
-        $result = Statistics::sum($values);
+        $actual = Statistics::sum($values);
         $expected = 14;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -36,10 +36,10 @@ class StatisticsTest extends TestCase
     {
         $values = [-1.0, 2.5, 3.25, 5.75];
 
-        $result = Statistics::sum($values);
+        $actual = Statistics::sum($values);
         $expected = 10.5;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -53,10 +53,10 @@ class StatisticsTest extends TestCase
     {
         $values = [-2, 2.5, 3.25, 5.75, 0];
 
-        $result = Statistics::sum($values);
+        $actual = Statistics::sum($values);
         $expected = 9.5;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -70,10 +70,10 @@ class StatisticsTest extends TestCase
     {
         $values = [1, 2, 3, 4, 4];
 
-        $result = Statistics::min($values);
+        $actual = Statistics::min($values);
         $expected = 1;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -87,10 +87,10 @@ class StatisticsTest extends TestCase
     {
         $values = [-1.0, 2.5, 3.25, 5.75];
 
-        $result = Statistics::min($values);
+        $actual = Statistics::min($values);
         $expected = -1.0;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -104,10 +104,10 @@ class StatisticsTest extends TestCase
     {
         $values = [1, 2, 3, 4, 4];
 
-        $result = Statistics::max($values);
+        $actual = Statistics::max($values);
         $expected = 4;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -121,10 +121,10 @@ class StatisticsTest extends TestCase
     {
         $values = [-1.0, 2.5, 3.25, 5.75];
 
-        $result = Statistics::max($values);
+        $actual = Statistics::max($values);
         $expected = 5.75;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -138,10 +138,10 @@ class StatisticsTest extends TestCase
     {
         $values = [1, 2, 3, 4, 4];
 
-        $result = Statistics::mean($values);
+        $actual = Statistics::mean($values);
         $expected = 2.8;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -155,10 +155,10 @@ class StatisticsTest extends TestCase
     {
         $values = [-1.0, 2.5, 3.25, 5.75];
 
-        $result = Statistics::mean($values);
+        $actual = Statistics::mean($values);
         $expected = 2.625;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -172,10 +172,10 @@ class StatisticsTest extends TestCase
     {
         $values = [-2, 2.5, 3.25, 5.75, 0];
 
-        $result = Statistics::mean($values);
+        $actual = Statistics::mean($values);
         $expected = 1.9;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -189,7 +189,7 @@ class StatisticsTest extends TestCase
     {
         $values = [1, 1, 2, 3, 3, 3, 3, 4];
 
-        $result = Statistics::frequency($values);
+        $actual = Statistics::frequency($values);
         $expected = [
             4 => 1,
             2 => 1,
@@ -197,7 +197,7 @@ class StatisticsTest extends TestCase
             3 => 4,
         ];
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -211,7 +211,7 @@ class StatisticsTest extends TestCase
     {
         $values = [1, 3, 6, 6, 6, 6, 7.12, 7.12, 12, 12, 17];
 
-        $result = Statistics::frequency($values);
+        $actual = Statistics::frequency($values);
         $expected = [
             17 => 1,
             1 => 1,
@@ -221,7 +221,7 @@ class StatisticsTest extends TestCase
             6 => 4,
         ];
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -235,14 +235,14 @@ class StatisticsTest extends TestCase
     {
         $values = ['red', 'blue', 'blue', 'red', 'green', 'red', 'red'];
 
-        $result = Statistics::frequency($values);
+        $actual = Statistics::frequency($values);
         $expected = [
             'green' => 1,
             'blue' => 2,
             'red' => 4,
         ];
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -256,24 +256,24 @@ class StatisticsTest extends TestCase
     {
         $values = [3];
 
-        $result = Statistics::mode($values);
+        $actual = Statistics::mode($values);
         $expected = 3;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
 
         $values = [1, 1, 2, 3, 3, 3, 3, 4];
 
-        $result = Statistics::mode($values);
+        $actual = Statistics::mode($values);
         $expected = 3;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
 
         $values = [1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17];
 
-        $result = Statistics::mode($values);
+        $actual = Statistics::mode($values);
         $expected = 6;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -287,20 +287,21 @@ class StatisticsTest extends TestCase
     {
         $values = ['red', 'blue', 'blue', 'red', 'green', 'red', 'red'];
 
-        $result = Statistics::mode($values);
+        $actual = Statistics::mode($values);
         $expected = 'red';
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
      * Tests `mode`.
      *
      * @return void
-     * @expectedException \Oefenweb\Statistics\StatisticsError
      */
     public function testModeNotExactlyOne()
     {
+        $this->expectException(StatisticsError::class);
+
         $values = [1, 1, 2, 4, 4];
 
         Statistics::mode($values);
@@ -318,10 +319,10 @@ class StatisticsTest extends TestCase
         $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = true;
 
-        $result = Statistics::variance($values, $sample);
+        $actual = Statistics::variance($values, $sample);
         $expected = 4.571429;
 
-        $this->assertEquals($expected, $result, '', pow(10, -4));
+				$this->_assertEqualsWithDelta($expected, $actual);
     }
 
     /**
@@ -336,10 +337,10 @@ class StatisticsTest extends TestCase
         $values = [0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25];
         $sample = true;
 
-        $result = Statistics::variance($values, $sample);
+        $actual = Statistics::variance($values, $sample);
         $expected = 1.428571;
 
-        $this->assertEquals($expected, $result, '', pow(10, -4));
+        $this->_assertEqualsWithDelta($expected, $actual);
     }
 
     /**
@@ -354,10 +355,10 @@ class StatisticsTest extends TestCase
         $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = false;
 
-        $result = Statistics::variance($values, $sample);
+        $actual = Statistics::variance($values, $sample);
         $expected = 4;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -372,10 +373,10 @@ class StatisticsTest extends TestCase
         $values = [0.0, 0.25, 0.25, 1.25, 1.5, 1.75, 2.75, 3.25];
         $sample = false;
 
-        $result = Statistics::variance($values, $sample);
+        $actual = Statistics::variance($values, $sample);
         $expected = 1.25;
 
-        $this->assertSame($expected, $result, '', pow(10, -4));
+        $this->assertSame($expected, $actual, '', pow(10, -4));
     }
 
     /**
@@ -405,10 +406,10 @@ class StatisticsTest extends TestCase
         $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = true;
 
-        $result = Statistics::standardDeviation($values, $sample);
+        $actual = Statistics::standardDeviation($values, $sample);
         $expected = 2.13809;
 
-        $this->assertEquals($expected, $result, '', pow(10, -4));
+        $this->_assertEqualsWithDelta($expected, $actual);
     }
 
     /**
@@ -423,10 +424,10 @@ class StatisticsTest extends TestCase
         $values = [1.5, 2.5, 2.5, 2.75, 3.25, 4.75];
         $sample = true;
 
-        $result = Statistics::standardDeviation($values, $sample);
+        $actual = Statistics::standardDeviation($values, $sample);
         $expected = 1.081087;
 
-        $this->assertEquals($expected, $result, '', pow(10, -4));
+        $this->_assertEqualsWithDelta($expected, $actual);
     }
 
     /**
@@ -441,10 +442,10 @@ class StatisticsTest extends TestCase
         $values = [2, 4, 4, 4, 5, 5, 7, 9];
         $sample = false;
 
-        $result = Statistics::standardDeviation($values, $sample);
+        $actual = Statistics::standardDeviation($values, $sample);
         $expected = 2.0;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -459,10 +460,10 @@ class StatisticsTest extends TestCase
         $values = [1.5, 2.5, 2.5, 2.75, 3.25, 4.75];
         $sample = false;
 
-        $result = Statistics::standardDeviation($values, $sample);
+        $actual = Statistics::standardDeviation($values, $sample);
         $expected = 0.9868;
 
-        $this->assertEquals($expected, $result, '', pow(10, -4));
+        $this->_assertEqualsWithDelta($expected, $actual);
     }
 
     /**
@@ -475,10 +476,10 @@ class StatisticsTest extends TestCase
     public function testRangeIntUnsigned()
     {
         $values = [4, 6, 10, 15, 18];
-        $result = Statistics::range($values);
+        $actual = Statistics::range($values);
         $expected = 14;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -491,10 +492,10 @@ class StatisticsTest extends TestCase
     public function testRangeIntSigned()
     {
         $values = [4, 6, 10, 15, 18, -18];
-        $result = Statistics::range($values);
+        $actual = Statistics::range($values);
         $expected = 36;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
 
     /**
@@ -507,9 +508,23 @@ class StatisticsTest extends TestCase
     public function testRangeFloats()
     {
         $values = [11, 13, 4.3, 15.5, 14];
-        $result = Statistics::range($values);
+        $actual = Statistics::range($values);
         $expected = 11.2;
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $actual);
     }
+
+		/**
+		 *
+		 * @param mixed $expected
+		 * @param mixed $actual
+		 * @param float $delta
+		 */
+		protected function _assertEqualsWithDelta($expected, $actual, float $delta = 0.0001) {
+				if (method_exists($this, 'assertEqualsWithDelta')) {
+					$this->assertEqualsWithDelta($expected, $actual, $delta);
+				} else {
+					$this->assertEquals($expected, $actual, '', $delta);
+				}
+		}
 }
