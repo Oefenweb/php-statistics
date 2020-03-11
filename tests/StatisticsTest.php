@@ -515,6 +515,7 @@ class StatisticsTest extends TestCase
     }
 
 		/**
+		 * Polyfill for `assertEqualsWithDelta`.
 		 *
 		 * @param mixed $expected
 		 * @param mixed $actual
