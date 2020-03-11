@@ -53,6 +53,10 @@ class Statistics
     {
         $numberOfValues = count($values);
 
+        if ($numberOfValues < 1) {
+            throw new StatisticsError('The mean requires at least one data point.');
+        }
+
         return self::sum($values) / $numberOfValues;
     }
 
